@@ -10,6 +10,7 @@
 <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon"/>
 <link href="styles/second.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<link href="styles/COWD.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -54,22 +55,21 @@ if (mysql_num_rows($QueryResult) > 0) {
 		$Events[] = $Row;
 		mysql_free_result($QueryResult);
 }
-
 // List the events
 $dateFormat = 'D, M jS, Y'; // gives->Mon, Jan 1st, 2013
 $timeFormat = 'g:i a'; // gives->1:23 am // 12hr no leading 0's
-//	$dateOnly = substr($dateFormat,0,10);
-//	$timeOnly = substr($dateFormat,-7);
 $NOW = time(); // current timestamp
 foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // started less than 12 hrs ago or in the future  
 	if (!in_array($event['eventID'])) {
+		echo '<div class="soapics_event">';
 		echo "<h3>" . htmlentities($event['title']) . "</h3>\n";
+		echo "<hr width='80%'>\n";
 		echo "<p>" . 'Date: ' . htmlentities(date($dateFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Time: ' . htmlentities(date($timeFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Location: ' . htmlentities($event['location']) . "</p>\n";
 		echo "<p>" . 'Cost ' . '$' . htmlentities($event['cost']) . "</p>\n";
 		echo "<p>" . 'Details ' . htmlentities($event['description']) . "</p>\n";
-		echo "<hr />\n";
+		echo "</div>\n";
 	}
 }
 //close the database
@@ -97,7 +97,10 @@ mysql_close($dbCon);
 	<!-- AddThis Button END -->
     <div id="FooterText"><p>&copy;2012 Southern Oregon APICS</p></div>
     <div id="CreatedBy">
-    <p><a href="http://www.purpledragonwebdevelopment.com">Created By</a></p>
+    <p>
+		<a href="http://www.purpledragonwebdevelopment.com">Page created by Purple Dragon Web Development</a>
+		<a href="http://arleigh.hixsigns.com"><span class="COWD"><em>In association with</em> ChanOmegaWebDevelopment</span></a>
+	</p>
     </div>
     
 
