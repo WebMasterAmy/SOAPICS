@@ -67,8 +67,8 @@ foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // start
 		echo "<p>" . 'Date: ' . htmlentities(date($dateFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Time: ' . htmlentities(date($timeFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Location: ' . htmlentities($event['location']) . "</p>\n";
-		echo "<p>" . 'Cost ' . '$' . htmlentities($event['cost']) . "</p>\n";
-		echo "<p>" . 'Details ' . htmlentities($event['description']) . "</p>\n";
+		echo "<p>" . 'Cost: ' . '$' . htmlentities($event['cost']) . "</p>\n";
+		echo "<p>" . 'Details: ' . htmlentities($event['description']) . "</p>\n";
 		echo "<hr />\n";
 	}
 }
