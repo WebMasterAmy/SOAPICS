@@ -97,7 +97,7 @@ mysql_close($dbCon);
 	<!-- AddThis Button END -->
     <div id="FooterText"><p>&copy;2012 Southern Oregon APICS</p></div>
     <div id="CreatedBy">
-    <p><a href="http://www.purpledragonwebdevelopment.com">Page created by Purple Dragon Web Development</a></p>
+    <p><a href="http://www.purpledragonwebdevelopment.com">Created By</a></p>
     </div>
     
 
