@@ -56,16 +56,16 @@ if (mysql_num_rows($QueryResult) > 0) {
 }
 
 // List the events
-$dateFormat = 'D, M jS, Y, g:i a'; // gives->Mon, Jan 1st, 2013, 1:23 am
+$dateFormat = 'D, M jS, Y'; // gives->Mon, Jan 1st, 2013
 $timeFormat = 'g:i a'; // gives->1:23 am // 12hr no leading 0's
-$dateOnly = substr($dateFormat,0,10);
-$timeOnly = substr($dateFormat,-7);
+//	$dateOnly = substr($dateFormat,0,10);
+//	$timeOnly = substr($dateFormat,-7);
 $NOW = time(); // current timestamp
 foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // started less than 12 hrs ago or in the future  
 	if (!in_array($event['eventID'])) {
 		echo "<h3>" . htmlentities($event['title']) . "</h3>\n";
-		echo "<p>" . 'Date: ' . htmlentities(date($dateOnly, $event['date'])) . "</p>\n";
-		echo "<p>" . 'Time: ' . htmlentities(date($timeOnly, $event['date'])) . "</p>\n";
+		echo "<p>" . 'Date: ' . htmlentities(date($dateFormat, $event['date'])) . "</p>\n";
+		echo "<p>" . 'Time: ' . htmlentities(date($timeFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Location: ' . htmlentities($event['location']) . "</p>\n";
 		echo "<p>" . 'Cost ' . '$' . htmlentities($event['cost']) . "</p>\n";
 		echo "<p>" . 'Details ' . htmlentities($event['description']) . "</p>\n";
