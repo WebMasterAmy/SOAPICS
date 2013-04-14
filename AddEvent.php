@@ -20,13 +20,22 @@ if(empty($_POST['title'])){
 	}else{
 		$title = stripslashes($_POST['title']);
 	}
+	
 if(empty($_POST['date'])){
 		++$err;
 		$Body .= "<p>You need to enter a date for the event.</p>\n";
 		$date = "";
 	}else{
 		$date = stripslashes($_POST['date']);
+		//for testing the time
+		if($date = strtotime($date)){	// successfully converted to timestamp
+			$Body .= "<p>The unix timestamp for the event is: " . $date . ".</p>\n";
+		}else{
+			$Body .= "<p>There was a problem encoding the Date Time of your event. Please make sure you use the DateTime picker.</p>\n";
+			++$err;
+		}
 	}
+
 // time slot not used with date/time picker
 //	if(empty($_POST['time'])){
 //		++$err;
