@@ -17,7 +17,7 @@ $timeFormat = 'g:i a'; // gives->1:23 am // 12hr no leading 0's
 $NOW = time(); // current timestamp
 foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // started less than 12 hrs ago or in the future  
 	if (!in_array($event['eventID'])) {
-		echo "<h3>" . "<a href='Southern_Oregon_APICS_Events.php'>" . htmlentities($event['title']) . "</a>" . "</h3>\n"; //event title links to event page
+		echo "<h3>" . "<a href='Southern_Oregon_APICS_Events.php'>" . ucwords($event['title']) . "</a>" . "</h3>\n"; //event title links to event page
 		echo "<p>" . 'Date: ' . htmlentities(date($dateFormat, $event['date'])) . "</p>\n";
 		echo "<hr />\n";
 	}
