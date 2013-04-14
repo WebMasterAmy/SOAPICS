@@ -60,8 +60,12 @@
   </div>
   <div id="Events">
     <h3>Upcoming Events</h3>
-<?php require_once('EventSideBar.ssi'); ?>
-
+<?php 
+// connect to the database
+require_once('connect.php'); 
+//display events
+require_once('EventSideBar.php');
+?>
 </div>
 <div id="footer">
 	<!-- AddThis Button BEGIN -->
@@ -81,11 +85,7 @@
     <div id="CreatedBy">
     <p><a href="http://www.purpledragonwebdevelopment.com">Page created by Purple Dragon Web Development</a></p>
     </div>
-    
-
-
 </div>
-
 </div>
 <?php require_once('contactform-code.php'); ?>
 </body>
