@@ -28,7 +28,7 @@
 <p>Title: <input name="title" id="title" type="text"  size="10" maxlength="30" /></p>
 <p>Date and time: <input name="date" id="date" type="text"  size="10" maxlength="15" /></p>
 <p>Location: <input name="location" id="location" type="text"  size="20" maxlength="60" /></p>
-<p>Cost: <input name="cost" id="cost" type="text"  size="10" maxlength="10" /></p>
+<p>Cost: <span class="small">Format (123.54) no commas</span><input name="cost" id="cost" type="text"  size="10" maxlength="10" /></p>
 <p>Description:<br />
 <textarea name="description" id="description" rows="3"></textarea></p>
 <input name="submit" id="submit" type="submit" value="Create Event" />

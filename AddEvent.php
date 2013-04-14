@@ -51,12 +51,22 @@ if(empty($_POST['location'])){
 	}else{
 		$loc = stripslashes($_POST['location']);
 	}
+//validate cost is numeric and a currency pattern
 if(empty($_POST['cost'])){
 		++$err;
 		$Body .= "<p>You need to enter a cost for the event, if there is no cost, enter 0.</p>\n";
 		$cost = "";
 	}else{
-		$cost = stripslashes($_POST['cost']);
+		$data = stripslashes($_POST['cost']);
+		$pattern = "/^[0-9]+(?:\.[0-9]{0,2})?$/"; //does not allow commas
+		if (!preg_match($pattern, $data)) {
+			$Body .="<p>You need to enter a numeric value for the cost</p>\n";
+			++$err;
+			$cost = "";
+		}
+		else {
+			$cost = $data;
+		}
 	}
 if(empty($_POST['description'])){
 		++$err;
