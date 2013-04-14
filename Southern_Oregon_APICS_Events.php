@@ -58,8 +58,6 @@ if (mysql_num_rows($QueryResult) > 0) {
 // List the events
 $dateFormat = 'D, M jS, Y'; // gives->Mon, Jan 1st, 2013
 $timeFormat = 'g:i a'; // gives->1:23 am // 12hr no leading 0's
-//	$dateOnly = substr($dateFormat,0,10);
-//	$timeOnly = substr($dateFormat,-7);
 $NOW = time(); // current timestamp
 foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // started less than 12 hrs ago or in the future  
 	if (!in_array($event['eventID'])) {
