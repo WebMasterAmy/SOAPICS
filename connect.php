@@ -19,10 +19,10 @@ if ($err == 0) {
 			++$err;
 		}
 		// only needed for testing 
-		else {
+		//else {
 			//show succcess if connected.
-			echo "<p>Successfully connected to database " . $DB ."</p>\n";
-		}
+			//echo "<p>Successfully connected to database " . $DB ."</p>\n";
+		//}
 	}
 }
 ?>
