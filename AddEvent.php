@@ -26,15 +26,14 @@ if(empty($_POST['date'])){
 		$date = "";
 	}else{
 		$date = stripslashes($_POST['date']);
+		if($date = strtotime($date)){	// successfully converted to timestamp
+			$Body .= "<p>The unix timestamp for the event is: " . $date . ".</p>\n";
+		}else{
+			$Body .= "<p>There was a problem encoding the Date Time of your event. Please make sure you use the DateTime picker.</p>\n";
+			++$err;
+		}
 	}
-// time slot not used with date/time picker
-//	if(empty($_POST['time'])){
-//		++$err;
-//		$Body .= "<p>You need to enter a time for the event</p>\n";
-//		$time = "";
-//	}else{
-//		$time = stripslashes($_POST['time']);
-//}
+
 if(empty($_POST['location'])){
 		++$err;
 		$Body .= "<p>You need to enter a location for the event</p>\n";
@@ -55,9 +54,15 @@ if(empty($_POST['description'])){
 		$desc = "";
 	}else{
 		$desc = stripslashes($_POST['description']);
+		$desc = urlencode($desc); 
+		// this way it can hold punctuation without mucking up MySQL communications 
+		// we store it urlencoded and then we need to urldecode it when we render it		
 	}
 // Save to database
 if ($err == 0) {
+	
+	$testDT = strtotime($testDate . ' ' . $testTime);
+	
 	$TableName = "events";
 	$SQLstring = "INSERT INTO $TableName " . " (title, date, location, cost, description) " . " VALUES( '$title', '$date', '$loc', '$cost', '$desc')";
 	$QueryResult = @mysql_query($SQLstring, $dbCon);
