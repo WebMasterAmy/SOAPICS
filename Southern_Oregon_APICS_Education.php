@@ -68,7 +68,12 @@
   </div>
   <div id="Events">
     <h3>Upcoming Events</h3>
-<!--#include file="EventSideBar.ssi" -->
+<?php 
+// connect to the database
+require_once('connect.php'); 
+//display events
+require_once('EventSideBar.php');
+?>
 </div>
 <div id="footer">
 	<!-- AddThis Button BEGIN -->
