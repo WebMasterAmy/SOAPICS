@@ -79,29 +79,7 @@ mysql_close($dbCon);
     <p> <a href="http://www.apics.org/membership-application">Join APICS</a> today to profit from our vast educational offerings as well as the knowledge and experiences of thousands of other operations management professionals worldwide. </p>
   </div>
 
-<div id="footer">
-	<!-- AddThis Button BEGIN -->
-		<div id="ShareIcons">
-		<p>Share this page on all your social websites.
-		<span class='st_facebook'></span>
-		<span class='st_blogger'></span>
-		<span class='st_linkedin'></span>
-		<span class='st_googleplus'></span>
-		<span class='st_twitter'></span>
-		<span class='st_delicious'></span>
-		<span class='st_email'></span>
-		<span class='st_sharethis'></span></p>
-		</div>
-	<!-- AddThis Button END -->
-    <div id="FooterText"><p>&copy;2012 Southern Oregon APICS</p></div>
-    <div id="CreatedBy">
-    <p><a href="http://www.purpledragonwebdevelopment.com">Created By</a></p>
-    </div>
-    
-
-
-</div>
-
+<?php include('footer.php'); ?>
 </div>
 </body>
 </html>

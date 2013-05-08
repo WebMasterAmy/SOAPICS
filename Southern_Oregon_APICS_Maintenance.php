@@ -107,29 +107,7 @@ require_once('connect.php');
 require_once('EventSideBar.php');
 ?>
 </div>
-<div id="footer">
-	<!-- AddThis Button BEGIN -->
-		<div id="ShareIcons">
-		<p>Share this page on all your social websites.
-		<span class='st_facebook'></span>
-		<span class='st_blogger'></span>
-		<span class='st_linkedin'></span>
-		<span class='st_googleplus'></span>
-		<span class='st_twitter'></span>
-		<span class='st_delicious'></span>
-		<span class='st_email'></span>
-		<span class='st_sharethis'></span></p>
-		</div>
-	<!-- AddThis Button END -->
-    <div id="FooterText"><p>&copy;2012 Southern Oregon APICS</p></div>
-    <div id="CreatedBy">
-    <p><a href="http://www.purpledragonwebdevelopment.com">Page created by Purple Dragon Web Development</a></p>
-    </div>
-    
-
-
-</div>
-
+<?php include('footer.php'); ?>
 </div>
 </body>
 </html>
