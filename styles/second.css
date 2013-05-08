@@ -134,11 +134,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80a1b5', end
 
 #CreatedBy {
 	float: left;
-	width: 175px;
+	width: 225px;
 	text-align: center;
 	border-left: 1px solid #616a72;
 	height: 50px;
 }
+#CreatedBy p a img {
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
 #FooterText {
 	float: left;
 	width: 350px;
