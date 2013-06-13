@@ -9,7 +9,10 @@ $title = "";
 $date = "";
 $time = "";
 $loc = "";
-$cost = "";
+$memcost = "";
+$nonmemcost = "";
+$stucost = "";
+$venue = "";
 $desc = "";
 
 //validate no empty fields
@@ -52,22 +55,62 @@ if(empty($_POST['location'])){
 		$loc = stripslashes($_POST['location']);
 	}
 //validate cost is numeric and a currency pattern
-if(empty($_POST['cost'])){
+if(empty($_POST['MemberCost'])){
 		++$err;
 		$Body .= "<p>You need to enter a cost for the event, if there is no cost, enter 0.</p>\n";
-		$cost = "";
+		$memcost = "";
 	}else{
-		$data = stripslashes($_POST['cost']);
+		$data = stripslashes($_POST['MemberCost']);
 		$pattern = "/^[0-9]+(?:\.[0-9]{0,2})?$/"; //does not allow commas
 		if (!preg_match($pattern, $data)) {
 			$Body .="<p>You need to enter a numeric value for the cost</p>\n";
 			++$err;
-			$cost = "";
+			$memcost = "";
 		}
 		else {
-			$cost = $data;
+			$memcost = $data;
 		}
 	}
+	if(empty($_POST['NonMemberCost'])){
+		++$err;
+		$Body .= "<p>You need to enter a cost for the event, if there is no cost, enter 0.</p>\n";
+		$nonmemcost = "";
+	}else{
+		$data = stripslashes($_POST['NonMemberCost']);
+		$pattern = "/^[0-9]+(?:\.[0-9]{0,2})?$/"; //does not allow commas
+		if (!preg_match($pattern, $data)) {
+			$Body .="<p>You need to enter a numeric value for the cost</p>\n";
+			++$err;
+			$nonmemcost = "";
+		}
+		else {
+			$nonmemcost = $data;
+		}
+	}
+	if(empty($_POST['StudentCost'])){
+		++$err;
+		$Body .= "<p>You need to enter a cost for the event, if there is no cost, enter 0.</p>\n";
+		$stucost = "";
+	}else{
+		$data = stripslashes($_POST['StudentCost']);
+		$pattern = "/^[0-9]+(?:\.[0-9]{0,2})?$/"; //does not allow commas
+		if (!preg_match($pattern, $data)) {
+			$Body .="<p>You need to enter a numeric value for the student cost</p>\n";
+			++$err;
+			$stucost = "";
+		}
+		else {
+			$stucost = $data;
+		}
+	}
+if(empty($_POST['Venue'])){
+		++$err;
+		$Body .= "<p>You need to add a max number of spots for the event.</p>\n";
+		$venue = "";
+	}else{
+		$venue = stripslashes($_POST['Venue']);
+	}
+	
 if(empty($_POST['description'])){
 		++$err;
 		$Body .= "<p>You need to add a description for the event.</p>\n";
@@ -78,7 +121,7 @@ if(empty($_POST['description'])){
 // Save to database
 if ($err == 0) {
 	$TableName = "events";
-	$SQLstring = "INSERT INTO $TableName " . " (title, date, location, cost, description) " . " VALUES( '$title', '$date', '$loc', '$cost', '$desc')";
+	$SQLstring = "INSERT INTO $TableName " . " (title, date, location, membercost, nonmembercost, studentcost, venue, description) " . " VALUES( '$title', '$date', '$loc', '$memcost', '$nonmemcost','$stucost', '$venue', '$desc')";
 	$QueryResult = @mysql_query($SQLstring, $dbCon);
 	if ($QueryResult == FALSE) {
 		$Body .= "<p>Unable to create event. Error code " . mysql_errno($dbCon) . ": " . mysql_error($dbCon) . "</p>\n";

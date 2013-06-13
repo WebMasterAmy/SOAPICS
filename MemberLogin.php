@@ -25,9 +25,8 @@ if ($err == 0) {
 	}
 }
 if($err == 0){
-	$go_to_address="http://purpledragonwebdevelopment.com/TestingPlace/APICS/AddMemberForm.php";
-	$go_to_address2="http://purpledragonwebdevelopment.com/TestingPlace/APICS/AddEventForm.php?";
-				$Body .="<iframe SRC=\"" .$go_to_address."\" width=\"400\" height=\"600\" framespacing=0 frameborder=no border=0 scrolling=auto></iframe>" . "<iframe SRC=\"" .$go_to_address2."\" width=\"400\" height=\"600\" framespacing=0 frameborder=no border=0 scrolling=auto></iframe>";
+	$go_to_address="http://purpledragonwebdevelopment.com/TestingPlace/APICS/AddEventForm.php";
+	header('Location:'.$go_to_address);
 		
 
 	}

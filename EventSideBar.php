@@ -3,7 +3,7 @@
 //retrieve events
 $TableName = "events";
 $Events = array();
-$SQLstring = "SELECT title, date, " . " location, cost, description " . " FROM $TableName ORDER BY date";
+$SQLstring = "SELECT title, date, " . " location, description " . " FROM $TableName ORDER BY date";
 $QueryResult = @mysql_query($SQLstring, $dbCon);
 if (mysql_num_rows($QueryResult) > 0) {
 	while (($Row = mysql_fetch_assoc($QueryResult)) !== FALSE)

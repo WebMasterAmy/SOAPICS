@@ -30,15 +30,9 @@
 <div id="LinkedIn">Find us on <a href="http://www.linkedin.com/groups?home=&amp;gid=2316552&amp;trk=anet_ug_hm" target="new"><img src="Images/linkedin.png" width="28" height="28" alt="LinkedIn Icon" /></a></div>
 <div class="fb-like" data-href="http://www.soapics.org" data-send="false" data-layout="button_count" data-width="300" data-show-faces="false" data-font="lucida grande"></div>
 </div>
-<div id="menuTop">
-<div class="menu"><a href="index.php" target="self" class="first">Home</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_About.php" target="self">About Us</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Events.php" target="self">Events</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Membership.php" target="self">Membership</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Education.php" target="self">Education</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Certification.php" target="self">Certification</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Maintenance.php" target="self" class="last">Maintenance</a></div>
-</div>
+<?php 
+//Import navigation links
+require_once('nav.php'); ?>
 <div id="MainContent">
 	<h2>APICS Certification  Maintenance Guidelines</h2>
 <p>You have worked hard to achieve your certifications. Keeping them up-to-date and active show your dedication to your career in operations and supply chain management and, helps boost your standing within your organization and the industry.</p>

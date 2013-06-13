@@ -10,6 +10,15 @@
 <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon"/>
 <link href="styles/second.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+</script>
 </head>
 
 <body>
@@ -30,16 +39,11 @@
 <div id="LinkedIn">Find us on <a href="http://www.linkedin.com/groups?home=&amp;gid=2316552&amp;trk=anet_ug_hm" target="new"><img src="Images/linkedin.png" width="28" height="28" alt="LinkedIn Icon" /></a></div>
 <div class="fb-like" data-href="http://www.soapics.org" data-send="false" data-layout="button_count" data-width="300" data-show-faces="false" data-font="lucida grande"></div>
 </div>
-<div id="menuTop">
-<div class="menu"><a href="index.php" target="self" class="first">Home</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_About.php" target="self">About Us</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Events.php" target="self">Events</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Membership.php" target="self">Membership</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Education.php" target="self">Education</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Certification.php" target="self">Certification</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Maintenance.php" target="self" class="last">Maintenance</a></div>
-</div>
+<?php 
+//Import navigation links
+require_once('nav.php'); ?>
 <div id="MainContent">
+<div id="Event">
 <?php 
 // connect to the database
 require_once('connect.php'); 
@@ -47,7 +51,7 @@ require_once('connect.php');
 //retrieve events
 $TableName = "events";
 $Events = array();
-$SQLstring = "SELECT title, date, " . " location, cost, description " . " FROM $TableName ORDER BY date";
+$SQLstring = "SELECT title, date, " . " location, membercost, nonmembercost, studentcost, venue, description " . " FROM $TableName ORDER BY date";
 $QueryResult = @mysql_query($SQLstring, $dbCon);
 if (mysql_num_rows($QueryResult) > 0) {
 	while (($Row = mysql_fetch_assoc($QueryResult)) !== FALSE)
@@ -62,17 +66,31 @@ $NOW = time(); // current timestamp
 foreach ($Events as $event) { if($event['date'] >= ($NOW - (60*60*12))) // started less than 12 hrs ago or in the future  
 	if (!in_array($event['eventID'])) {
 		echo "<h3>" . htmlentities($event['title']) . "</h3>\n";
+?>
+<div id="SignUpBtn" onclick="MM_showHideLayers('SignUpForm','','show')">Sign Up</div><br />
+<?php
 		echo "<p>" . 'Date: ' . htmlentities(date($dateFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Time: ' . htmlentities(date($timeFormat, $event['date'])) . "</p>\n";
 		echo "<p>" . 'Location: ' . htmlentities($event['location']) . "</p>\n";
-		echo "<p>" . 'Cost: ' . '$' . htmlentities($event['cost']) . "</p>\n";
+		echo "<p>" . 'Member Cost: ' . '$' . htmlentities($event['membercost']) . "</p>\n";
+		echo "<p>" . 'Non Member Cost: ' . '$' . htmlentities($event['nonmembercost']) . "</p>\n";
+		echo "<p>" . 'Student Cost: ' . '$' . htmlentities($event['studentcost']) . "</p>\n";
+		echo "<p>" . 'Maximum Spots Available: ' . htmlentities($event['venue']) . "</p>\n";
 		echo "<p>" . 'Details: ' . htmlentities($event['description']) . "</p>\n";
-		echo "<hr />\n";
 	}
 }
+?>
+</div>
+
+<div id="SignUpForm">
+
 //close the database
 mysql_close($dbCon);
 ?>
+</div>
+
+
+
 </div>
   <div id="Join">
     <h3><a href="http://www.apics.org/membership-application">Join Today</a></h3>

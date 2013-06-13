@@ -1,10 +1,9 @@
 @charset "utf-8";
+
 #addMember, #addEvent {
-	height: 350px;
-	width: 300px;
+	height: 450px;
+	width: 415px;
 	padding-top: 3px;
-	margin-right: auto;
-	margin-left: auto;
 	background: #80a1b5; /* Old browsers */
 	background: -moz-linear-gradient(top,  #80a1b5 0%, #6088a3 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#80a1b5), color-stop(100%,#6088a3)); /* Chrome,Safari4+ */
@@ -27,7 +26,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80a1b5', end
 	margin-right: 10px;
 	padding-top: 3px;
 }
-#first, #last, #email, #password, #password2, #title, #time, #date, #location, #cost, {
+#first, #last, #email, #password, #password2, #title, #time, #date, #location, #MemberCost, #NonMemberCost, #StudentCost{
 	margin-left: 22px;
 	color: #00887d;
 }
@@ -64,4 +63,13 @@ input, select {
 .small {
 	font-size: 9px;
 	color: #FFF;
+}
+#Event {
+	float: left;
+	width: 400px;
+}
+#Member {
+	width: 400px;
+	margin-left: 20px;
+	float: left;
 }

@@ -32,15 +32,9 @@
 <div id="LinkedIn">Find us on <a href="http://www.linkedin.com/groups?home=&amp;gid=2316552&amp;trk=anet_ug_hm" target="new"><img src="Images/linkedin.png" width="28" height="28" alt="LinkedIn Icon" /></a></div>
 <div class="fb-like" data-href="http://www.soapics.org" data-send="false" data-layout="button_count" data-width="300" data-show-faces="false" data-font="lucida grande"></div>
 </div>
-<div id="menuTop">
-<div class="menu"><a href="index.php" target="self" class="first">Home</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_About.php" target="self">About Us</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Events.php" target="self">Events</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Membership.php" target="self">Membership</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Education.php" target="self">Education</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Certification.php" target="self">Certification</a></div>
-<div class="menu"><a href="Southern_Oregon_APICS_Maintenance.php" target="self" class="last">Maintenance</a></div>
-</div>
+<?php 
+//Import navigation links
+require_once('nav.php'); ?>
 <div id="MainContent">
 <h2>Education</h2>
 <p>Fulfill your APICS education and training needs through Certification classes, seminars or workshop series, public or in-house venues, part or full day, Saturday or weekday schedules.</p>
